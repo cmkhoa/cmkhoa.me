@@ -17,7 +17,6 @@ public/
 .gatsby/
 
 # Local hosting and deployment state
-.netlify/
 .vercel/
 
 # Environment files: commit only documented examples

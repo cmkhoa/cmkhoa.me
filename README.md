@@ -1,7 +1,7 @@
 # cmkhoa.me
 
 Personal website for `cmkhoa.me`, built with Gatsby and deployed through
-Netlify.
+Vercel.
 
 ## Run locally
 

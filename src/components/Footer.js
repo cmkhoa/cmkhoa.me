@@ -1,6 +1,5 @@
 import React from 'react'
 
-import netlify from '../assets/netlify.png'
 import gatsby from '../assets/gatsby.png'
 import github from '../assets/nav-github.png'
 import { Mail } from '../assets/Mail'
@@ -14,7 +13,6 @@ const links = [
 const madeWithLinks = [
   { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },
   { url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME', label: 'GitHub', icon: github },
-  { url: 'https://www.netlify.com', label: 'Netlify', icon: netlify },
 ]
 
 export const Footer = () => {
