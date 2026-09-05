@@ -1,0 +1,29 @@
+# cmkhoa.me
+
+Personal website for `cmkhoa.me`, built with Gatsby and deployed through
+Netlify.
+
+## Run locally
+
+```sh
+npm ci
+npm run develop
+```
+
+Build the production site with:
+
+```sh
+npm run build
+```
+
+## Content and setup
+
+- Site writing is checked into [`content/`](content/); there is no submodule.
+- Replace `REPLACE_WITH_YOUR_USERNAME` and `hello@cmkhoa.me` before deploying.
+- Edit site metadata and social profiles in `src/utils/config.js`.
+- Update Work cards in `src/data/projectsList.js`.
+
+This project includes the upstream [MIT License](LICENSE). It began as a
+separate copy of the Gatsby implementation from
+[taniarascia.com](https://github.com/taniarascia/taniarascia.com); all
+personal content and branding must remain cmkhoa's own.
