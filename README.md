@@ -22,6 +22,8 @@ npm run build
 - Replace `REPLACE_WITH_YOUR_USERNAME` and `hello@cmkhoa.me` before deploying.
 - Edit site metadata and social profiles in `src/utils/config.js`.
 - Update Work cards in `src/data/projectsList.js`.
+- Replace the visual files in `src/assets/` and `static/logo.png` in place;
+  their paths are already wired into the navigation and manifest.
 
 This project includes the upstream [MIT License](LICENSE). It began as a
 separate copy of the Gatsby implementation from

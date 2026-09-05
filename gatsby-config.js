@@ -76,7 +76,8 @@ module.exports = {
         background_color: 'white',
         // theme_color: '#959af8',
         display: 'minimal-ui',
-        icon: `static/cmkhoa-mark.png`,
+        // Replace this file in place with your own 512px square site mark.
+        icon: `static/logo.png`,
       },
     },
     {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 
+import floppyLogo from '../assets/nav-floppy.png'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
@@ -32,6 +33,13 @@ export const Navigation = ({
       <div className="navbar-title">
         <div className="navbar-title-content">
           <Link to="/" className="navbar-title-link">
+            <img
+              src={floppyLogo}
+              className="navbar-logo"
+              alt="cmkhoa.me"
+              height="16"
+              width="16"
+            />
             <span className="site-name">cmkhoa.me</span>
           </Link>
         </div>
@@ -54,6 +62,7 @@ export const Navigation = ({
                 activeClassName="active"
                 onClick={handleCloseMobileNav}
               >
+                <img src={link.image} alt="" />
                 {link.label}
               </Link>
             ))}

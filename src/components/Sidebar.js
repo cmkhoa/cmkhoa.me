@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
+import floppyLogo from '../assets/nav-floppy.png'
 import { mainNavLinks, subNavLinks } from '../data/navLinks'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
@@ -32,6 +33,13 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <div className="sidebar-title-link">
           <Link to="/" className="flex-align-center gap">
+            <img
+              src={floppyLogo}
+              className="navbar-logo"
+              alt="cmkhoa.me"
+              height="16"
+              width="16"
+            />
             <span className="site-name">cmkhoa.me</span>
           </Link>
           <div className="flex-align-center">
@@ -69,6 +77,7 @@ export const Sidebar = ({
         <nav className="sidebar-nav-links">
           {links.map((link) => (
             <Link key={link.url} to={link.url} activeClassName="active">
+              <img src={link.image} alt="" />
               {link.label}
             </Link>
           ))}

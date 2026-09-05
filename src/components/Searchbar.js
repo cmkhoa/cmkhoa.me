@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { navigate } from 'gatsby'
 
+import searchIcon from '../assets/nav-search.png'
 
 export const Searchbar = ({
   count,
@@ -40,6 +41,14 @@ export const Searchbar = ({
           autoComplete="off"
           onChange={handleSearch}
         />
+        {isLocal && (
+          <img
+            className="search-icon"
+            src={searchIcon}
+            alt="Search"
+            onClick={() => searchRef.current.focus()}
+          />
+        )}
         {!isLocal && (
           <button
             type="submit"

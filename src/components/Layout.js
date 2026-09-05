@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 
+import favicon from '../assets/nav-floppy.png'
 import { Navigation } from './Navigation'
 import { Footer } from './Footer'
 import { Sidebar } from './Sidebar'
@@ -59,7 +60,7 @@ export const Layout = ({ data, location, children }) => {
   return (
     <div>
       <Helmet htmlAttributes={{ lang: 'en' }}>
-        <link rel="shortcut icon" type="image/png" href="/cmkhoa-mark.png" />
+        <link rel="shortcut icon" type="image/png" href={favicon} />
         {location?.pathname && (
           <link
             rel="canonical"
