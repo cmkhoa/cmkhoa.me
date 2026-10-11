@@ -12,7 +12,7 @@ const links = [
 ]
 const madeWithLinks = [
   { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },
-  { url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME', label: 'GitHub', icon: github },
+  { url: 'https://github.com/cmkhoa', label: 'GitHub', icon: github },
 ]
 
 export const Footer = () => {

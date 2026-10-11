@@ -24,7 +24,7 @@ export const Sidebar = ({
       label: 'Email',
       Icon: Mail,
     },
-    { url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME', label: 'GitHub', Icon: GitHub },
+    { url: 'https://github.com/cmkhoa', label: 'GitHub', Icon: GitHub },
     { url: '/rss.xml', label: 'RSS feed', Icon: Rss },
   ]
 

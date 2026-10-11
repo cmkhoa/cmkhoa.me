@@ -4,7 +4,7 @@ const config = {
   siteUrl: 'https://cmkhoa.me',
   siteLogo: '/logo.png',
   description: 'Personal notes, work, and experiments by cmkhoa.',
-  profiles: ['https://github.com/REPLACE_WITH_YOUR_USERNAME'],
+  profiles: ['https://github.com/cmkhoa'],
 }
 
 export default config

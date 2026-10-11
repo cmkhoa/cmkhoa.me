@@ -1,19 +1,38 @@
-// Replace these placeholders with your own projects and links.
 export const projectsList = [
   {
-    name: 'cmkhoa.me',
+    name: 'RedisClone',
     date: '2026',
-    slug: 'cmkhoa.me',
-    tagline: 'This personal website, built with Gatsby.',
-    url: 'https://cmkhoa.me',
+    slug: 'redisclone',
+    tagline:
+      'A Redis-compatible server in Go with RESP2/TCP, a 32-shard concurrent keyspace, expiration and eviction policies, AOF persistence, and race-tested multi-key operations.',
+    url: 'https://github.com/cmkhoa/redisclone',
     highlight: true,
   },
   {
-    name: 'Project placeholder',
+    name: 'LocalRunner',
     date: '2026',
-    slug: 'project-placeholder',
-    tagline: 'Replace this card with a project you are proud to share.',
-    url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME',
+    slug: 'localrunner',
+    tagline:
+      'A local Go service for supervising llama.cpp inference with model registration, request queueing, streaming, health checks, restart recovery, and operational metrics.',
+    url: 'https://github.com/cmkhoa/LocalRunner',
+    highlight: true,
+  },
+  {
+    name: 'MURL',
+    date: '2026',
+    slug: 'murl',
+    tagline:
+      'A reproducible research pipeline for LLM-assisted grading of worked calculus solutions, with versioned prompts, family-disjoint splits, schema validation, and structured metrics.',
+    url: 'https://github.com/cmkhoa/UIC-MURL-LLM',
+    highlight: true,
+  },
+  {
+    name: 'Formula One Data Study',
+    date: '2026',
+    slug: 'formula-one-data-study',
+    tagline:
+      'A team data-science project exploring how qualifying, pit stops, and race context relate to Formula One performance.',
+    url: 'https://github.com/cmkhoa/cs418-formula-one',
     highlight: true,
   },
 ]

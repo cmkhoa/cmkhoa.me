@@ -28,11 +28,11 @@ export default function Index({ data }) {
             <div>
               <h1>Hi, I’m cmkhoa.</h1>
               <p className="hero-description hero-tagline">
-                A personal site for notes, work, and things in progress.
+                A personal site for engineering work, notes, photography, and things in progress.
               </p>
               <p className="hero-description">
-                This is a starting point. Update the copy, links, and content in
-                the <code>content</code> directory to make it your own.
+                I build reliable systems for LLM workloads—from concurrent storage
+                and local model orchestration to reproducible evaluation pipelines.
               </p>
             </div>
           </div>
