@@ -15,6 +15,7 @@ function slugify(str) {
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const notesEnabled = false
 
   const blogPage = path.resolve('./src/templates/post.js')
   const pagePage = path.resolve('./src/templates/page.js')
@@ -51,7 +52,9 @@ const createPages = async ({ graphql, actions }) => {
   }
 
   const all = result.data.allMarkdownRemark.edges
-  const posts = all.filter((post) => post.node.frontmatter.template === 'post')
+  const posts = notesEnabled
+    ? all.filter((post) => post.node.frontmatter.template === 'post')
+    : []
   const pages = all.filter((post) => post.node.frontmatter.template === 'page')
   const tagSet = new Set()
   const categorySet = new Set()
@@ -198,3 +201,10 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createPages = createPages
 exports.onCreateNode = createNode
+
+// Notes remain in the repository, but are intentionally not public yet.
+exports.onCreatePage = ({ page, actions }) => {
+  if (['/blog/', '/topics/'].includes(page.path)) {
+    actions.deletePage(page)
+  }
+}

@@ -9,7 +9,7 @@ import config from '../utils/config'
 import { projectsList } from '../data/projectsList'
 
 export default function Projects() {
-  const title = 'Work'
+  const title = 'Projects'
   const description = 'Selected projects and experiments by cmkhoa.'
 
   return (

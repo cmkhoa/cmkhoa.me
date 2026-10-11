@@ -67,8 +67,8 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <div className="sidebar-content">
           <p>
-            I'm <Link to="/me">cmkhoa</Link>. This is a home for notes, work,
-            and experiments.
+            I'm <Link to="/me">cmkhoa</Link>. This is a home for engineering
+            work, photography, and experiments.
           </p>
         </div>
       </section>

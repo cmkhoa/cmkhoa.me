@@ -1,23 +1,16 @@
-import React, { useMemo } from 'react'
-import { Link, graphql } from 'gatsby'
+import React from 'react'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/Layout'
-import { Posts } from '../components/Posts'
 import { SEO } from '../components/SEO'
 import { Heading } from '../components/Heading'
 import { Hero } from '../components/Hero'
 import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
-import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 
-export default function Index({ data }) {
-  const recent = useMemo(
-    () => getSimplifiedPosts(data.latestPosts.edges, { thumbnails: true }),
-    [data.latestPosts.edges]
-  )
-
+export default function Index() {
   return (
     <>
       <Helmet title={config.siteTitle} />
@@ -28,7 +21,7 @@ export default function Index({ data }) {
             <div>
               <h1>Hi, I’m cmkhoa.</h1>
               <p className="hero-description hero-tagline">
-                A personal site for engineering work, notes, photography, and things in progress.
+                A personal site for engineering work, photography, and things in progress.
               </p>
               <p className="hero-description">
                 I build reliable systems for LLM workloads—from concurrent storage
@@ -38,13 +31,8 @@ export default function Index({ data }) {
           </div>
         </Hero>
 
-        <section className="section-index">
-          <Heading title="Latest notes" slug="/blog" buttonText="All Notes" />
-          <Posts data={recent} detailed />
-        </section>
-
         <section>
-          <Heading title="Work" slug="/projects" buttonText="All Work" />
+          <Heading title="Projects" slug="/projects" buttonText="All Projects" />
           <div className="cards">
             {projectsList.filter((project) => project.highlight).map((project) => (
               <div className="card" key={project.slug}>
@@ -57,7 +45,8 @@ export default function Index({ data }) {
             ))}
           </div>
           <p>
-            Learn more <Link to="/me">about cmkhoa</Link> or view the{' '}
+            View my <Link to="/work">experience</Link>, learn more{' '}
+            <Link to="/me">about cmkhoa</Link>, or read the{' '}
             <Link to="/resume">resume</Link>.
           </p>
         </section>
@@ -67,31 +56,3 @@ export default function Index({ data }) {
 }
 
 Index.Layout = Layout
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    latestPosts: allMarkdownRemark(
-      limit: 4
-      sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { template: { eq: "post" } } }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            categories
-            thumbnail {
-              publicURL
-            }
-          }
-        }
-      }
-    }
-  }
-`
