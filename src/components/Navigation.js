@@ -61,6 +61,7 @@ export const Navigation = ({
                 to={link.url}
                 activeClassName="active"
                 onClick={handleCloseMobileNav}
+                className={link.url === '/work' ? 'work-nav-link' : undefined}
               >
                 <img src={link.image} alt="" />
                 {link.label}

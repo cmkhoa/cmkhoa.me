@@ -18,13 +18,15 @@ export default function Work() {
       <SEO customTitle={title} customDescription={description} />
       <PageLayout>
         <Hero title={title} description={description} />
-        <div className="cards">
+        <div className="experience-list">
           {experienceList.map((experience) => (
-            <article className="card" key={experience.slug}>
-              <time>{experience.date}</time>
-              <h2 className="card-header">{experience.organization}</h2>
-              <p><strong>{experience.role}</strong></p>
-              <p>{experience.summary}</p>
+            <article className="experience-card" key={experience.slug}>
+              <time className="experience-date">{experience.date}</time>
+              <div className="experience-content">
+                <h2>{experience.organization}</h2>
+                <p className="experience-role">{experience.role}</p>
+                <p>{experience.summary}</p>
+              </div>
             </article>
           ))}
         </div>

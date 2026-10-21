@@ -862,7 +862,12 @@ a.navbar-icon {
       img {
         height: 24px;
         width: 24px;
+        image-rendering: pixelated;
       }
+    }
+
+    a.work-nav-link img {
+      transform: scale(1.35);
     }
   }
 
@@ -879,6 +884,27 @@ a.navbar-icon {
       img {
         height: 20px;
         width: 20px;
+      }
+    }
+
+    .sidebar-icon-button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      margin: 0;
+      padding: 4px 6px;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-text-emphasized);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
       }
     }
 
@@ -1888,6 +1914,65 @@ a time.new-post {
 .cards {
   display: grid;
   gap: 0.5rem;
+}
+
+/* Experience timeline */
+
+.experience-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem;
+  background: var(--color-background-card);
+  border: 2px solid var(--color-border-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.experience-date {
+  padding-top: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.experience-content {
+  min-width: 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--color-primary);
+
+  h2 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  p {
+    margin: 0.5rem 0 0;
+    color: var(--color-text);
+    line-height: 1.55;
+  }
+
+  .experience-role {
+    margin-top: 0.2rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .experience-card {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .experience-content {
+    padding-left: 0.9rem;
+  }
 }
 
 @media screen and (min-width: 800px) {

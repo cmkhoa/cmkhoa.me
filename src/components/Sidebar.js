@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
@@ -7,8 +7,8 @@ import { mainNavLinks, subNavLinks } from '../data/navLinks'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Mail } from '../assets/Mail'
-import { Rss } from '../assets/Rss'
 import { GitHub } from '../assets/GitHub'
+import { Linkedin2Solid } from 'pixelarticons/react'
 
 export const Sidebar = ({
   theme,
@@ -16,17 +16,29 @@ export const Sidebar = ({
   currentColor,
   setCurrentColor,
 }) => {
+  const email = 'cmkhoa2006@gmail.com'
+  const [emailStatus, setEmailStatus] = useState('')
   const links = mainNavLinks
   const subLinks = subNavLinks
   const socialLinks = [
-    {
-      url: 'mailto:hello@cmkhoa.me',
-      label: 'Email',
-      Icon: Mail,
-    },
     { url: 'https://github.com/cmkhoa', label: 'GitHub', Icon: GitHub },
-    { url: '/rss.xml', label: 'RSS feed', Icon: Rss },
+    {
+      url: 'https://linkedin.com/in/cmkhoa',
+      label: 'LinkedIn',
+      Icon: Linkedin2Solid,
+    },
   ]
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setEmailStatus('Copied!')
+    } catch {
+      setEmailStatus('Copy failed')
+    }
+
+    window.setTimeout(() => setEmailStatus(''), 2000)
+  }
 
   return (
     <aside className="sidebar">
@@ -76,7 +88,12 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <nav className="sidebar-nav-links">
           {links.map((link) => (
-            <Link key={link.url} to={link.url} activeClassName="active">
+            <Link
+              key={link.url}
+              to={link.url}
+              activeClassName="active"
+              className={link.url === '/work' ? 'work-nav-link' : undefined}
+            >
               <img src={link.image} alt="" />
               {link.label}
             </Link>
@@ -87,6 +104,17 @@ export const Sidebar = ({
       <div className="sidebar-bottom">
         <section className="sidebar-section">
           <nav className="sidebar-links">
+            <div className="tooltip-container tooltip-above">
+              <button
+                type="button"
+                className="sidebar-icon-button"
+                onClick={handleCopyEmail}
+                aria-label={`Copy ${email} to clipboard`}
+              >
+                <Mail size={20} />
+              </button>
+              <div className="tooltip">{emailStatus || 'Copy email'}</div>
+            </div>
             {socialLinks.map(({ url, label, Icon, image }) => (
               <div className="tooltip-container tooltip-above" key={url}>
                 {url.startsWith('http') ? (
@@ -97,7 +125,7 @@ export const Sidebar = ({
                     aria-label={label}
                   >
                     {Icon ? (
-                      <Icon size={20} />
+                      <Icon size={20} width={20} height={20} />
                     ) : (
                       <img src={image} alt="" width="20" height="20" />
                     )}
@@ -105,7 +133,7 @@ export const Sidebar = ({
                 ) : (
                   <a href={url} aria-label={label}>
                     {Icon ? (
-                      <Icon size={20} />
+                      <Icon size={20} width={20} height={20} />
                     ) : (
                       <img src={image} alt="" width="20" height="20" />
                     )}
