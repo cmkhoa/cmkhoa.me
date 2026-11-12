@@ -10,7 +10,10 @@
     "develop": "GATSBY_CPU_COUNT=1 gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "serve:test": "gatsby serve --prefix-paths --host 127.0.0.1 --port 9000",
+    "test": "playwright test",
+    "test:external": "CHECK_EXTERNAL_LINKS=1 playwright test --project=desktop --grep \"optional external\""
   },
   "repository": {
     "type": "git",
@@ -49,6 +52,7 @@
     "react-use-flexsearch": "^0.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.0",
     "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.1",
     "postcss": "^8.5.3",

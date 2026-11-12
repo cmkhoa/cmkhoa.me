@@ -5,7 +5,7 @@ import favicon from '../assets/nav-floppy.png'
 import { Navigation } from './Navigation'
 import { Footer } from './Footer'
 import { Sidebar } from './Sidebar'
-import config from '../utils/config'
+import { sitePageUrl } from '../utils/config'
 
 import '../styles/style.css'
 import '../styles/new-moon.css'
@@ -64,7 +64,7 @@ export const Layout = ({ data, location, children }) => {
         {location?.pathname && (
           <link
             rel="canonical"
-            href={`${config.siteUrl}${location.pathname}`}
+            href={sitePageUrl(location.pathname)}
           />
         )}
       </Helmet>

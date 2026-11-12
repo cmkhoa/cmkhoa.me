@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: process.env.GATSBY_PATH_PREFIX || '/',
   siteMetadata: {
     title: 'cmkhoa',
     author: { name: 'Michael Cao' },

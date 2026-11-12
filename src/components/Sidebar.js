@@ -62,6 +62,7 @@ export const Sidebar = ({
             <div className="tooltip-container">
               <button
                 className="navbar-button"
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
                 onClick={() => {
                   const newTheme = theme === 'dark' ? 'light' : 'dark'
 

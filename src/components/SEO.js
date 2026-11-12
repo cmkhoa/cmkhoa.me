@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 
-import config from '../utils/config'
+import config, { sitePageUrl } from '../utils/config'
 
 // Facebook and LinkedIn reject og:image below 200px and render a text-only
 // card; fall back to the site logo so shares always carry an image
@@ -17,7 +17,7 @@ export const SEO = ({
   customDescription,
 }) => {
   const location = useLocation()
-  const pageURL = `${config.siteUrl}${location.pathname}`
+  const pageURL = sitePageUrl(location.pathname)
 
   let title = customTitle || config.siteTitle
   let description = customDescription || config.description

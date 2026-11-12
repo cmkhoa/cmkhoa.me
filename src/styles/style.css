@@ -2704,6 +2704,10 @@ a.footer-link {
   }
 
   .dropdown-option {
+    display: block;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
 

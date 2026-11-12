@@ -45,3 +45,7 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/settings.json
 node_modules
+
+# Browser check output
+playwright-report/
+test-results/
