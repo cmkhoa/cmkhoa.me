@@ -13,7 +13,7 @@ export const experienceList = [
     date: '2026–Present',
     slug: 'uic-math-lab',
     summary:
-      'Building a reproducible evaluation pipeline for LLM-assisted grading of Calc I–II integration solutions, including structured feedback, first-error localization, and error taxonomy.',
+      'Built a reproducible evaluation pipeline for LLM-assisted grading of Calc I–II integration solutions. Completed a cross-family fine-tuning study with structured feedback, first-error localization, and a frozen held-out evaluation.',
   },
   {
     organization: 'Career Foundation Hub',

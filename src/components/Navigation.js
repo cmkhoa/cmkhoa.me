@@ -10,7 +10,7 @@ import { Close } from '../assets/Close'
 import { ColorDropdown } from './ColorDropdown'
 import { mainNavLinks as links } from '../data/navLinks'
 
-const socialLinks = [{ url: 'mailto:hello@cmkhoa.me' }]
+const socialLinks = [{ url: 'mailto:cmkhoa2006@gmail.com' }]
 
 export const Navigation = ({
   handleUpdateTheme,

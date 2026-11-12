@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'cmkhoa',
-    author: { name: 'cmkhoa' },
+    author: { name: 'Michael Cao' },
     siteUrl: 'https://cmkhoa.me',
-    description: 'Personal notes, work, and experiments by cmkhoa.',
+    description: 'Michael Cao — UIC Computer Science student building backend systems, AI infrastructure, and tools in Go, Rust, and Python.',
   },
   plugins: [
     // ===================================================================================
@@ -59,7 +59,7 @@ module.exports = {
       options: {
         name: 'cmkhoa',
         short_name: 'cmkhoa.me',
-        description: 'Personal notes, work, and experiments by cmkhoa.',
+        description: 'Michael Cao — UIC Computer Science student building backend systems, AI infrastructure, and tools in Go, Rust, and Python.',
         start_url: '/',
         background_color: 'white',
         // theme_color: '#959af8',
@@ -105,7 +105,7 @@ module.exports = {
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { 'content:encoded': html },
-                    { author: 'hello@cmkhoa.me' },
+                    { author: 'cmkhoa2006@gmail.com' },
                   ],
                 })
               })

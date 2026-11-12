@@ -9,12 +9,21 @@ export const projectsList = [
     highlight: true,
   },
   {
-    name: 'LocalRunner',
+    name: 'myLlama',
     date: '2026',
-    slug: 'localrunner',
+    slug: 'myllama',
     tagline:
-      'A local Go service for supervising llama.cpp inference with model registration, request queueing, streaming, health checks, restart recovery, and operational metrics.',
-    url: 'https://github.com/cmkhoa/LocalRunner',
+      'A localhost control plane in Go for llama.cpp: runner supervision, serialized and streamed chat requests, a companion CLI, profiles, health checks, logs, and metrics.',
+    url: 'https://github.com/cmkhoa/myLlama',
+    highlight: true,
+  },
+  {
+    name: 'Canvas MCP',
+    date: '2026',
+    slug: 'canvas-mcp',
+    tagline:
+      'A Rust MCP server that brings Canvas LMS into AI clients through 46 read-only tools for assignments, grades, course content, and grade scenarios. Distributed as a single binary.',
+    url: 'https://github.com/cmkhoa/canvas-mcp',
     highlight: true,
   },
   {
@@ -22,9 +31,27 @@ export const projectsList = [
     date: '2026',
     slug: 'murl',
     tagline:
-      'A reproducible research pipeline for LLM-assisted grading of worked calculus solutions, with versioned prompts, family-disjoint splits, schema validation, and structured metrics.',
-    url: 'https://github.com/cmkhoa/UIC-MURL-LLM',
+      'Completed a reproducible fine-tuning and evaluation study for grading worked calculus solutions. The frozen Qwen3-4B model produced 47/47 valid outputs and 39/47 correct labels on the held-out test.',
+    url: 'https://github.com/cmkhoa/uic-murl-llm-grader-finetune',
     highlight: true,
+  },
+  {
+    name: 'Beacon',
+    date: '2026',
+    slug: 'beacon',
+    tagline:
+      'A team hackathon project for hospital supply coordination, with voice-assisted inventory updates, transfer maps, and regional analytics using React, TypeScript, Firestore, and ElevenLabs.',
+    url: 'https://github.com/cmkhoa/2026-uncommonhacks-beacons',
+    highlight: false,
+  },
+  {
+    name: 'Agent Take-Homes',
+    date: '2026',
+    slug: 'agent-take-homes',
+    tagline:
+      'Three framework-free agent engineering practice briefs covering customer support, a text-adventure narrator, and accounts payable, with a focus on tool boundaries and deterministic application rules.',
+    url: 'https://github.com/cmkhoa/agent-projects',
+    highlight: false,
   },
   {
     name: 'Formula One Data Study',

@@ -19,8 +19,8 @@ description: Experience and selected work by cmkhoa.
 
 *2026–present · Chicago, IL*
 
-- Building an evaluation pipeline for LLM-assisted grading of Calc I–II integration solutions, including structured feedback, first-error localization, and error taxonomy.
-- Comparing prompt-only and parameter-efficient fine-tuning approaches for open-weight models with reproducible data splits and versioned evaluation artifacts.
+- Built an evaluation pipeline for LLM-assisted grading of Calc I–II integration solutions, including structured feedback, first-error localization, and error taxonomy.
+- Completed a cross-family comparison of prompt-only and parameter-efficient fine-tuning approaches with reproducible data splits and versioned evaluation artifacts. The selected Qwen3-4B model achieved 39/47 correct labels and first-error exact match on 24/26 eligible held-out examples.
 
 ### Career Foundation Hub — Software Engineering Intern
 
@@ -39,8 +39,9 @@ description: Experience and selected work by cmkhoa.
 ## Selected work
 
 - [**RedisClone**](https://github.com/cmkhoa/redisclone) — A Go implementation of a Redis-compatible in-memory server with concurrent sharded storage, RESP2/TCP, AOF durability, and benchmarked performance.
-- [**LocalRunner**](https://github.com/cmkhoa/LocalRunner) — A local LLM runner manager that supervises `llama.cpp`, queues requests, exposes streaming completions, and records health and performance metrics.
-- [**MURL**](https://github.com/cmkhoa/UIC-MURL-LLM) — A research pipeline for evaluating structured LLM feedback on worked integration solutions.
+- [**myLlama**](https://github.com/cmkhoa/myLlama) — A local LLM runner manager that supervises `llama.cpp`, queues requests, exposes streaming completions, and records health and performance metrics.
+- [**MURL**](https://github.com/cmkhoa/uic-murl-llm-grader-finetune) — A completed fine-tuning and evaluation study for structured grading of worked integration solutions; 47/47 valid outputs and 39/47 correct labels on the held-out test.
+- [**Canvas MCP**](https://github.com/cmkhoa/canvas-mcp) — A single-binary Rust MCP server with 46 read-only tools for Canvas LMS, including course content, deadlines, grades, and grade scenarios.
 
 ## Education and skills
 
@@ -48,6 +49,6 @@ description: Experience and selected work by cmkhoa.
 
 **Focus areas:** distributed systems, backend reliability, AI infrastructure, and applied machine learning.
 
-**Tools:** Go, Python, TypeScript, Java, C/C++, SQL, FastAPI, Node.js, Redis, PostgreSQL, MongoDB, Docker, GitHub Actions, Airflow, PyTorch, AWS, and GCP.
+**Tools:** Go, Rust, Python, TypeScript, Java, C/C++, SQL, FastAPI, Node.js, Redis, PostgreSQL, MongoDB, Docker, GitHub Actions, Airflow, PyTorch, AWS, and GCP.
 
-Outside class and work, I actively compete in ICPC and am preparing for the Mid-Central USA regional.
+Outside class and work, I practice algorithms and competitive programming through ICPC preparation.

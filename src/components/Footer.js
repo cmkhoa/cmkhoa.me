@@ -6,7 +6,7 @@ import { Mail } from '../assets/Mail'
 import { Heart } from '../assets/Heart'
 
 const links = [
-  { url: 'mailto:hello@cmkhoa.me', label: 'Email', Icon: Mail },
+  { url: 'mailto:cmkhoa2006@gmail.com', label: 'Email', Icon: Mail },
 ]
 const madeWithLinks = [
   { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },

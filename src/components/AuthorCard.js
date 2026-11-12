@@ -8,7 +8,7 @@ export const AuthorCard = () => {
         Thanks for reading. Learn <Link to="/me">more about cmkhoa</Link> or get
         in touch by{' '}
         <a
-          href="mailto:hello@cmkhoa.me"
+          href="mailto:cmkhoa2006@gmail.com"
         >
           email
         </a>

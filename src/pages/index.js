@@ -19,20 +19,22 @@ export default function Index() {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Hi, I’m cmkhoa.</h1>
+              <h1>Hi, I’m Michael Cao.</h1>
               <p className="hero-description hero-tagline">
-                A personal site for engineering work, photography, and things in progress.
+                Computer Science at UIC. Backend systems, AI infrastructure, and applied ML.
               </p>
               <p className="hero-description">
-                I build reliable systems for LLM workloads—from concurrent storage
-                and local model orchestration to reproducible evaluation pipelines.
+                I build the systems around AI—from concurrent storage and local
+                model orchestration to tools for students and reproducible
+                model evaluation. This is a home for that work, photography,
+                and things in progress.
               </p>
             </div>
           </div>
         </Hero>
 
         <section>
-          <Heading title="Projects" slug="/projects" buttonText="All Projects" />
+          <Heading title="Featured work" slug="/projects" buttonText="All Projects" />
           <div className="cards">
             {projectsList.filter((project) => project.highlight).map((project) => (
               <div className="card" key={project.slug}>
