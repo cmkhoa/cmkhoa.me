@@ -30,6 +30,10 @@ export default function Index() {
                 model evaluation. This is a home for that work, photography,
                 and things in progress.
               </p>
+              <p className="hero-description">
+                UIC ICPC co-founder · UIC ACM Jobs technical lead ·
+                Top 8, ICPC Mid-Central Regional 2026.
+              </p>
             </div>
             <Portrait />
           </div>

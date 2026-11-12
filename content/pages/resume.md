@@ -2,53 +2,72 @@
 template: page
 title: Resume
 slug: resume
-description: Experience and selected work by cmkhoa.
+description: Michael Cao's education, engineering experience, research, and selected projects.
 ---
+
+## Education
+
+**University of Illinois Chicago** — B.S. in Computer Science, minor in Mathematics. Expected May 2028 · GPA: 4.0.
+
+**Honors:** ICPC Mid-Central Regional 2026 Top 8; ICPC Vietnam National Round 2022 Top 35; UIC Dean's List.
+
+**Leadership:** Co-Founder, UIC ICPC; Technical Lead, UIC ACM Jobs.
+
+**Coursework:** Data Structures & Algorithms, Systems Programming, Software Design, Artificial Intelligence, Machine Learning.
 
 ## Experience
 
 ### Finbud AI — Software Engineering Intern
 
-*2025–2026 · Chicago, IL*
+*June–August 2026*
 
-- Built and benchmarked a FastAPI retrieval-augmented generation backend for 10K+ financial documents, using Redis caching and Airflow ingestion to sustain sub-300 ms latency at 1,200+ concurrent requests.
-- Fine-tuned Llama 3 with PyTorch and LoRA on 10K+ synthetic routing scenarios, reducing malformed tool calls from 40% to 20% on a 1,000-case evaluation suite.
-- Delivered Siri-enabled financial-companion actions and supporting backend integrations for production workflows.
+- Rebuilt a document-retrieval API over 10,000+ document chunks using FastAPI, Redis, and LangChain/LangGraph, increasing benchmark capacity from 200 to 1,200 concurrent requests while staying under 300 ms.
+- Built a PyTorch evaluation workflow with NumPy and Pandas for 1,000 tool-routing scenarios, isolating formatting and routing failures before model updates reached production.
+- Automated health checks, cache validation, and latency monitoring with Airflow, catching 25+ regressions before they affected users.
+
+### Finbud AI — Software Engineering Intern
+
+*June–August 2025*
+
+- Fine-tuned Llama 3 with LoRA and DPO on 10,000+ synthetic routing examples, reducing malformed tool calls from 40% to 20% on a 1,000-case evaluation suite.
+- Replaced an external GPT-4o routing dependency with a self-hosted Llama 3 inference service, avoiding a projected 20% operating-cost increase.
+- Shipped 10 tool integrations for a financial companion through Node.js services and Siri App Intents.
 
 ### University of Illinois Chicago Mathematics Laboratory — Undergraduate Researcher
 
-*2026–present · Chicago, IL*
+*2026–present*
 
-- Built an evaluation pipeline for LLM-assisted grading of Calc I–II integration solutions, including structured feedback, first-error localization, and error taxonomy.
-- Completed a cross-family comparison of prompt-only and parameter-efficient fine-tuning approaches with reproducible data splits and versioned evaluation artifacts. The selected Qwen3-4B model achieved 39/47 correct labels and first-error exact match on 24/26 eligible held-out examples.
+- Created a benchmark for grading Calc I–II integration solutions, covering 250 authored examples across 34 problem families and eight topics, with family-disjoint training, validation, and test splits.
+- Fine-tuned Qwen3-4B with 4-bit NF4 QLoRA on T4 GPUs to generate structured grading labels, error categories, first-error locations, evidence, and feedback.
+- Built schema-aware evaluation for output validity, accuracy, taxonomy macro F1, and first-error localization. The selected model achieved 39/47 correct labels (83%), 0.70 taxonomy macro F1, and 47/47 schema-valid outputs on the held-out test.
 
 ### Career Foundation Hub — Software Engineering Intern
 
-*2025 · Remote*
+*September–November 2025*
 
-- Migrated a student counseling platform to a distributed GCP, Node.js, and MongoDB architecture with role-based access across three permission tiers.
-- Improved an agentic job-application workflow with cached context, prompt constraints, request pacing, and retry logic—cutting median step latency from 10 seconds to 5 seconds and rate-limit failures to 5% across 1,000+ runs.
+- Built a student-counseling platform supporting 1,000+ records and three permission tiers with React, Node.js, MongoDB, Docker, and GCP.
+- Improved a ReAct-based application workflow with caching, prompt constraints, request pacing, and exponential backoff, cutting median step latency from 10 to 5 seconds and rate-limit failures to 5% across 1,000+ runs.
 
 ### eSmart Solutions Agency — Software Engineering Intern
 
-*2024 · Saint Paul, MN*
+*June–August 2024*
 
-- Built event-driven integration workflows across three client projects using Node.js serverless functions, REST APIs, and webhooks.
-- Standardized validation, data normalization, and retry-safe failure handling, reducing malformed CRM records from 10% to 4%.
+- Built event-driven services for three client projects using Node.js serverless functions, REST APIs, and webhooks to route 900 weekly leads across CRM, email, and analytics systems.
+- Standardized schema validation, data normalization, and retry-safe handling, reducing malformed CRM records from 10% to 4% and integration setup time from seven to two days.
 
 ## Selected work
 
-- [**RedisClone**](https://github.com/cmkhoa/redisclone) — A Go implementation of a Redis-compatible in-memory server with concurrent sharded storage, RESP2/TCP, AOF durability, and benchmarked performance.
-- [**myLlama**](https://github.com/cmkhoa/myLlama) — A local LLM runner manager that supervises `llama.cpp`, queues requests, exposes streaming completions, and records health and performance metrics.
-- [**MURL**](https://github.com/cmkhoa/uic-murl-llm-grader-finetune) — A completed fine-tuning and evaluation study for structured grading of worked integration solutions; 47/47 valid outputs and 39/47 correct labels on the held-out test.
+- [**RedisClone**](https://github.com/cmkhoa/redisclone) — A Redis-compatible Go server with RESP2/TCP, a 32-shard keyspace, ordered multi-key locking, expiration, eviction, and AOF durability. Validated with unit, end-to-end, and race tests; benchmarked at over one million SET and GET requests per second.
+- [**myLlama**](https://github.com/cmkhoa/myLlama) — A local control plane for `llama.cpp` with profiles, process supervision, a bounded FIFO queue, streaming responses, cancellation, runtime limits, health checks, and metrics.
+- [**MURL**](https://github.com/cmkhoa/uic-murl-llm-grader-finetune) — A completed fine-tuning and evaluation study for structured grading of worked calculus solutions, with a frozen held-out evaluation and reproducible artifacts.
 - [**Canvas MCP**](https://github.com/cmkhoa/canvas-mcp) — A single-binary Rust MCP server with 46 read-only tools for Canvas LMS, including course content, deadlines, grades, and grade scenarios.
 
-## Education and skills
+## Skills
 
-**University of Illinois Chicago** — B.S. in Computer Science, minor in Mathematics, expected May 2028. GPA: 4.0.
+**Languages:** Go, Rust, Python, C/C++, Java, TypeScript, JavaScript, SQL.
 
-**Focus areas:** distributed systems, backend reliability, AI infrastructure, and applied machine learning.
+**Backend & data:** FastAPI, Node.js, Express, Spring Boot, React, Next.js, Redis, PostgreSQL, MongoDB, Kafka, REST APIs, S3-compatible storage.
 
-**Tools:** Go, Rust, Python, TypeScript, Java, C/C++, SQL, FastAPI, Node.js, Redis, PostgreSQL, MongoDB, Docker, GitHub Actions, Airflow, PyTorch, AWS, and GCP.
+**ML & LLM systems:** PyTorch, NumPy, Pandas, Hugging Face Transformers, PEFT, bitsandbytes, Unsloth, LangChain, LangGraph, LoRA, DPO, QLoRA, RAG, LLM evaluation, MCP, llama.cpp.
 
-Outside class and work, I practice algorithms and competitive programming through ICPC preparation.
+**Infrastructure:** GCP, AWS, Docker, Airflow, Git, GitHub Actions, CI/CD, Linux, Bash, TCP.

@@ -4,7 +4,7 @@ export const projectsList = [
     date: '2026',
     slug: 'redisclone',
     tagline:
-      'A Redis-compatible server in Go with RESP2/TCP, a 32-shard concurrent keyspace, expiration and eviction policies, AOF persistence, and race-tested multi-key operations.',
+      'A Redis-compatible Go server with RESP2/TCP, a 32-shard keyspace, ordered multi-key locking, expiration, eviction, and AOF persistence. Race-tested and benchmarked at over one million SET and GET requests per second.',
     url: 'https://github.com/cmkhoa/redisclone',
     highlight: true,
   },
@@ -31,7 +31,7 @@ export const projectsList = [
     date: '2026',
     slug: 'murl',
     tagline:
-      'Completed a reproducible fine-tuning and evaluation study for grading worked calculus solutions. The frozen Qwen3-4B model produced 47/47 valid outputs and 39/47 correct labels on the held-out test.',
+      'A reproducible grading study with 250 calculus solutions across 34 problem families and eight topics. Fine-tuned Qwen3-4B achieved 83% grading accuracy, 0.70 taxonomy macro F1, and 47/47 schema-valid outputs on the held-out test.',
     url: 'https://github.com/cmkhoa/uic-murl-llm-grader-finetune',
     highlight: true,
   },

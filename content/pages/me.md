@@ -52,9 +52,6 @@ with schema validation and retry-safe failure handling.
   streaming responses, cancellation, health checks, and metrics.
 - [**Canvas MCP**](https://github.com/cmkhoa/canvas-mcp): a Rust server that gives
   AI clients read-only access to course content, deadlines, and grades.
-- **VaultShare** (in progress): a file-sharing application built with Next.js,
-  Go, PostgreSQL, and S3-compatible storage, with owner, viewer, and editor
-  permissions checked before issuing short-lived upload and download URLs.
 
 ## Community and competitive programming
 
