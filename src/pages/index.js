@@ -6,6 +6,7 @@ import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
 import { Heading } from '../components/Heading'
 import { Hero } from '../components/Hero'
+import { Portrait } from '../components/Portrait'
 import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import config from '../utils/config'
@@ -17,7 +18,7 @@ export default function Index() {
       <SEO />
       <PageLayout>
         <Hero type="index">
-          <div className="hero-wrapper">
+          <div className="hero-wrapper has-portrait">
             <div>
               <h1>Hi, I’m Michael Cao.</h1>
               <p className="hero-description hero-tagline">
@@ -30,6 +31,7 @@ export default function Index() {
                 and things in progress.
               </p>
             </div>
+            <Portrait />
           </div>
         </Hero>
 

@@ -45,15 +45,6 @@ export const projectsList = [
     highlight: false,
   },
   {
-    name: 'Agent Take-Homes',
-    date: '2026',
-    slug: 'agent-take-homes',
-    tagline:
-      'Three framework-free agent engineering practice briefs covering customer support, a text-adventure narrator, and accounts payable, with a focus on tool boundaries and deterministic application rules.',
-    url: 'https://github.com/cmkhoa/agent-projects',
-    highlight: false,
-  },
-  {
     name: 'Formula One Data Study',
     date: '2026',
     slug: 'formula-one-data-study',

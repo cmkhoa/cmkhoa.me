@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Layout } from '../components/Layout'
 import { Hero } from '../components/Hero'
+import { Portrait } from '../components/Portrait'
 import { SEO } from '../components/SEO'
 import { PageLayout } from '../components/PageLayout'
 import config from '../utils/config'
@@ -11,6 +12,7 @@ import config from '../utils/config'
 export default function PageTemplate({ data }) {
   const post = data.markdownRemark
   const { title, htmlTitle, description, thumbnail } = post.frontmatter
+  const isAbout = post.frontmatter.slug === 'me'
 
   return (
     <>
@@ -21,9 +23,11 @@ export default function PageTemplate({ data }) {
         <Hero title={title} thumbnail={thumbnail} />
         <div
           id={`article-${post.frontmatter.slug}`}
-          className="page-article"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+          className={`page-article${isAbout ? ' about-article' : ''}`}
+        >
+          {isAbout && <Portrait />}
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
       </PageLayout>
     </>
   )

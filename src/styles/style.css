@@ -2790,3 +2790,65 @@ a.footer-link {
 .gatsby-resp-image-wrapper {
   margin: 2rem 0;
 }
+
+/* Shared portrait: the border follows the visitor's selected accent. */
+.profile-portrait {
+  display: block;
+  box-sizing: border-box;
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  border: 5px solid var(--color-primary);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 65%;
+}
+
+.hero-wrapper.has-portrait {
+  align-items: center;
+  gap: 2rem;
+
+  > div {
+    min-width: 0;
+  }
+
+  .profile-portrait {
+    flex-shrink: 0;
+    order: -1;
+  }
+}
+
+@container hero-index (min-width: 700px) {
+  .hero-wrapper.has-portrait {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+
+    .profile-portrait {
+      order: 0;
+    }
+  }
+}
+
+.about-article {
+  display: flow-root;
+
+  > .profile-portrait {
+    margin: 0 auto 2rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .about-article > .profile-portrait {
+    float: right;
+    margin: 1.75rem 0 1.5rem 2.5rem;
+  }
+
+  .about-article h2 {
+    overflow: hidden;
+  }
+
+  .about-article h2:not(:first-child) {
+    clear: right;
+  }
+}
