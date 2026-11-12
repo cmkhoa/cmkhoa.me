@@ -53,6 +53,8 @@ export const ColorDropdown = ({ currentColor, setCurrentColor }) => {
   return (
     <div className="dropdown tooltip-container" ref={dropdownRef}>
       <button
+        aria-label="Choose accent color"
+        aria-expanded={open}
         onClick={handleToggle}
         className={`navbar-button ${open ? 'active' : ''}`}
       >
@@ -62,7 +64,10 @@ export const ColorDropdown = ({ currentColor, setCurrentColor }) => {
         <div className="dropdown-results">
           <div className="circles">
             {colors.map((color) => (
-              <div
+              <button
+                type="button"
+                aria-label={`${color.slice(12, -1).replace(/^./, letter => letter.toUpperCase())} accent`}
+                aria-pressed={color === currentColor}
                 key={color}
                 className="dropdown-option"
                 onClick={() => {
@@ -70,7 +75,7 @@ export const ColorDropdown = ({ currentColor, setCurrentColor }) => {
                 }}
               >
                 <div style={{ backgroundColor: color }} className="circle" />
-              </div>
+              </button>
             ))}
           </div>
         </div>

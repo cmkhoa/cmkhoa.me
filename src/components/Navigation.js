@@ -50,11 +50,14 @@ export const Navigation = ({
             className={`navbar-button nav-menu-button ${
               navOpen ? 'active' : ''
             }`}
+            aria-label={navOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={navOpen}
+            aria-controls="mobile-navigation"
             onClick={handleToggleMobileNav}
           >
             {navOpen ? <Close /> : <Menu />}
           </button>
-          <nav className={`navbar-menu nav-items ${navOpen ? 'active' : ''}`}>
+          <nav id="mobile-navigation" className={`navbar-menu nav-items ${navOpen ? 'active' : ''}`}>
             {links.map((link) => (
               <Link
                 key={link.url}
@@ -71,6 +74,7 @@ export const Navigation = ({
           <nav className="navbar-menu social">
             <button
               className="navbar-button"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
               onClick={() => {
                 const newTheme = theme === 'dark' ? 'light' : 'dark'
 
