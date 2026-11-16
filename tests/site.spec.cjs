@@ -46,6 +46,19 @@ test('navigation reaches Projects, Work, About, and Resume', async ({ page }, te
   await expect(page).toHaveURL(/\/resume\/$/)
 })
 
+test('mobile menu keeps contact actions visible and touch-sized', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'Mobile-only navigation check.')
+  await page.goto(sitePath('/'))
+  await page.getByRole('button', { name: 'Open navigation' }).click()
+  const menu = page.locator('.navbar .nav-items')
+  await expect(menu.getByRole('button', { name: 'Copy email' })).toBeVisible()
+  await expect(menu.getByRole('link', { name: 'GitHub' })).toBeVisible()
+  await expect(menu.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+  for (const action of await menu.locator('.mobile-contact-actions > *').all()) {
+    expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(56)
+  }
+})
+
 test('theme and accent persist, and the portrait follows the accent', async ({ page }) => {
   await page.goto(sitePath('/'))
   const visibleButton = name => page.getByRole('button', { name, exact: true }).filter({ visible: true })

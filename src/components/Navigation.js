@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { SocialIcon } from 'react-social-icons'
 
 import floppyLogo from '../assets/nav-floppy.png'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
+import { Mail } from '../assets/Mail'
+import { GitHub } from '../assets/GitHub'
 import { ColorDropdown } from './ColorDropdown'
 import { mainNavLinks as links } from '../data/navLinks'
-
-const socialLinks = [{ url: 'mailto:cmkhoa2006@gmail.com' }]
+import { Linkedin2Solid } from 'pixelarticons/react'
 
 export const Navigation = ({
   handleUpdateTheme,
@@ -19,6 +19,8 @@ export const Navigation = ({
   setCurrentColor,
 }) => {
   const [navOpen, setNavOpen] = useState(false)
+  const [emailStatus, setEmailStatus] = useState('')
+  const email = 'cmkhoa2006@gmail.com'
 
   const handleToggleMobileNav = () => {
     setNavOpen((prev) => !prev)
@@ -26,6 +28,33 @@ export const Navigation = ({
 
   const handleCloseMobileNav = () => {
     setNavOpen(false)
+  }
+
+  const handleCopyEmail = async () => {
+    try {
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(email)
+      } else {
+        const copyTarget = document.createElement('textarea')
+        copyTarget.value = email
+        copyTarget.setAttribute('readonly', '')
+        copyTarget.style.position = 'fixed'
+        copyTarget.style.opacity = '0'
+        document.body.appendChild(copyTarget)
+        copyTarget.select()
+
+        const copied = document.execCommand('copy')
+        document.body.removeChild(copyTarget)
+
+        if (!copied) throw new Error('Clipboard copy was unavailable')
+      }
+
+      setEmailStatus('Copied!')
+    } catch {
+      setEmailStatus('Copy failed')
+    }
+
+    window.setTimeout(() => setEmailStatus(''), 2000)
   }
 
   return (
@@ -70,6 +99,32 @@ export const Navigation = ({
                 {link.label}
               </Link>
             ))}
+            <div className="mobile-contact-actions" role="group" aria-label="Contact and social links">
+              <button
+                type="button"
+                className="mobile-contact-action"
+                onClick={handleCopyEmail}
+              >
+                <Mail size={20} />
+                <span>{emailStatus || 'Copy email'}</span>
+              </button>
+              <a
+                href="https://github.com/cmkhoa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHub size={20} />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/cmkhoa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin2Solid size={20} width={20} height={20} />
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </nav>
           <nav className="navbar-menu social">
             <button
@@ -87,16 +142,6 @@ export const Navigation = ({
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
             />
-            {socialLinks.map((link) => (
-              <SocialIcon
-                target="_blank"
-                key={link.url}
-                url={link.url}
-                fgColor="currentColor"
-                bgColor="transparent"
-                className="navbar-icon"
-              />
-            ))}
           </nav>
         </section>
       </div>

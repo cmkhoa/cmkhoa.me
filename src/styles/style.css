@@ -714,14 +714,23 @@ button.navbar-button {
   .navbar-menu {
     &.nav-items {
       height: calc(100vh - var(--navbar-height));
-      justify-content: center;
-      padding-bottom: 40vh;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 0.4rem;
+      padding: clamp(1.5rem, 8vh, 3.5rem) 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
 
       a {
-        font-size: 1.2rem;
+        min-height: 56px;
+        padding: 0.85rem 1rem;
+        font-size: 1.35rem;
         display: flex;
         gap: 0.5rem;
         align-items: center;
+
+        img {
+          height: 22px;
+          width: 22px;
+        }
       }
 
       &.active {
@@ -739,6 +748,48 @@ button.navbar-button {
     }
   }
 
+  .mobile-contact-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+
+    a,
+    .mobile-contact-action {
+      min-height: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      padding: 0.35rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      background: var(--color-background-alternate);
+      color: var(--color-text-muted);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.1;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        border-color: var(--color-primary);
+        color: var(--color-text-emphasized);
+        background: var(--color-background-navbar-link-hover);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+    }
+  }
+
   .navbar-section {
     flex-direction: row-reverse;
   }
@@ -751,6 +802,10 @@ button.navbar-button {
 }
 
 @media screen and (min-width: 800px) {
+  .mobile-contact-actions {
+    display: none;
+  }
+
   button.nav-menu-button {
     display: none;
   }
