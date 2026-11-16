@@ -36,11 +36,11 @@ export const projectsList = [
     highlight: false,
   },
   {
-    name: 'MURL',
+    name: 'MURL — Mathematics Undergraduate Research Lab',
     date: '2026',
     slug: 'murl',
     tagline:
-      'A reproducible grading study with 250 calculus solutions across 34 problem families and eight topics. Fine-tuned Qwen3-4B achieved 83% grading accuracy, 0.70 taxonomy macro F1, and 47/47 schema-valid outputs on the held-out test.',
+      'A University of Illinois Chicago Mathematics Undergraduate Research Lab project: a reproducible grading study across 250 calculus solutions, 34 problem families, and eight topics. Fine-tuned Qwen3-4B achieved 83% grading accuracy, 0.70 taxonomy macro F1, and 47/47 schema-valid outputs on the held-out test.',
     url: 'https://github.com/cmkhoa/uic-murl-llm-grader-finetune',
     highlight: true,
   },
