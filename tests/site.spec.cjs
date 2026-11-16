@@ -51,12 +51,19 @@ test('mobile menu keeps contact actions visible and touch-sized', async ({ page 
   await page.goto(sitePath('/'))
   await page.getByRole('button', { name: 'Open navigation' }).click()
   const menu = page.locator('.navbar .nav-items')
-  await expect(menu.getByRole('button', { name: 'Copy email' })).toBeVisible()
+  await expect(menu.getByText('This is a home for engineering work, photography, and experiments.')).toBeVisible()
+  await expect(menu.getByRole('button', { name: 'Copy cmkhoa2006@gmail.com to clipboard' })).toBeVisible()
   await expect(menu.getByRole('link', { name: 'GitHub' })).toBeVisible()
   await expect(menu.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+  const firstMenuRow = menu.locator(':scope > a').first()
+  expect((await firstMenuRow.boundingBox()).height).toBeGreaterThanOrEqual(64)
+  expect(await firstMenuRow.evaluate(el => getComputedStyle(el).boxShadow)).not.toBe('none')
   for (const action of await menu.locator('.mobile-contact-actions > *').all()) {
-    expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(56)
+    expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44)
   }
+  expect(await menu.locator('.mobile-contact-actions svg').evaluateAll(icons =>
+    icons.map(icon => [Math.round(icon.getBoundingClientRect().width), Math.round(icon.getBoundingClientRect().height)]),
+  )).toEqual([[20, 20], [20, 20], [20, 20]])
 })
 
 test('theme and accent persist, and the portrait follows the accent', async ({ page }) => {

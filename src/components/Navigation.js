@@ -87,6 +87,12 @@ export const Navigation = ({
             {navOpen ? <Close /> : <Menu />}
           </button>
           <nav id="mobile-navigation" className={`navbar-menu nav-items ${navOpen ? 'active' : ''}`}>
+            <section className="mobile-sidebar-intro">
+              <p>
+                I'm <Link to="/me" onClick={handleCloseMobileNav}>cmkhoa</Link>. This is a home for engineering
+                work, photography, and experiments.
+              </p>
+            </section>
             {links.map((link) => (
               <Link
                 key={link.url}
@@ -104,25 +110,28 @@ export const Navigation = ({
                 type="button"
                 className="mobile-contact-action"
                 onClick={handleCopyEmail}
+                aria-label={emailStatus ? `${emailStatus} ${email}` : `Copy ${email} to clipboard`}
               >
                 <Mail size={20} />
-                <span>{emailStatus || 'Copy email'}</span>
+                <span className="screen-reader-status" role="status" aria-live="polite">
+                  {emailStatus}
+                </span>
               </button>
               <a
                 href="https://github.com/cmkhoa"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <GitHub size={20} />
-                <span>GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/cmkhoa"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <Linkedin2Solid size={20} width={20} height={20} />
-                <span>LinkedIn</span>
               </a>
             </div>
           </nav>
