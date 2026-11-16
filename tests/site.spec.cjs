@@ -56,6 +56,10 @@ test('mobile menu mirrors the sidebar hierarchy and keeps its raised rows', asyn
   const firstMenuRow = menu.locator(':scope > a').first()
   expect((await firstMenuRow.boundingBox()).height).toBeGreaterThanOrEqual(64)
   expect(await firstMenuRow.evaluate(el => getComputedStyle(el).boxShadow)).not.toBe('none')
+  const projectsIcon = menu.getByRole('link', { name: 'Projects', exact: true }).locator('img')
+  const workIcon = menu.getByRole('link', { name: 'Work', exact: true }).locator('img')
+  expect((await projectsIcon.boundingBox()).width).toBeCloseTo(24, 0)
+  expect((await workIcon.boundingBox()).width / (await projectsIcon.boundingBox()).width).toBeCloseTo(1.35, 1)
   await expect(menu.locator('.mobile-contact-actions')).toHaveCount(0)
 })
 
