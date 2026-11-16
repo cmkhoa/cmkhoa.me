@@ -54,13 +54,25 @@ test('mobile menu mirrors the sidebar hierarchy and keeps its raised rows', asyn
   await expect(menu.getByText('This is a home for engineering work, photography, and experiments.')).toBeVisible()
   await expect(menu.getByRole('link', { name: 'cmkhoa', exact: true })).toHaveCSS('display', 'inline')
   const firstMenuRow = menu.locator(':scope > a').first()
-  expect((await firstMenuRow.boundingBox()).height).toBeGreaterThanOrEqual(64)
-  expect(await firstMenuRow.evaluate(el => getComputedStyle(el).boxShadow)).not.toBe('none')
+  await expect(firstMenuRow).toHaveCSS('font-size', '16px')
+  await expect(firstMenuRow).toHaveCSS('padding-top', '4px')
   const projectsIcon = menu.getByRole('link', { name: 'Projects', exact: true }).locator('img')
   const workIcon = menu.getByRole('link', { name: 'Work', exact: true }).locator('img')
   expect((await projectsIcon.boundingBox()).width).toBeCloseTo(24, 0)
   expect((await workIcon.boundingBox()).width / (await projectsIcon.boundingBox()).width).toBeCloseTo(1.35, 1)
-  await expect(menu.locator('.mobile-contact-actions')).toHaveCount(0)
+  const contacts = menu.locator('.mobile-contact-actions')
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async text => { window.copiedEmail = text } } })
+  })
+  await contacts.getByRole('button', { name: 'Copy email address' }).click()
+  await expect(menu.getByRole('status')).toHaveText('Email copied')
+  expect(await page.evaluate(() => window.copiedEmail)).toBe('cmkhoa2006@gmail.com')
+  await expect(contacts.getByRole('link', { name: 'GitHub', exact: true })).toBeVisible()
+  await expect(contacts.getByRole('link', { name: 'LinkedIn', exact: true })).toBeVisible()
+  for (const icon of await contacts.locator('svg').all()) {
+    expect((await icon.boundingBox()).width).toBe(20)
+  }
+  await expect(contacts.locator('a').first()).toHaveCSS('box-shadow', 'none')
 })
 
 test('desktop sidebar retains its contact controls and inline introduction link', async ({ page }, testInfo) => {

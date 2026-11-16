@@ -6,6 +6,9 @@ import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
+import { Mail } from '../assets/Mail'
+import { GitHub } from '../assets/GitHub'
+import { Linkedin2Solid } from 'pixelarticons/react'
 import { ColorDropdown } from './ColorDropdown'
 import { mainNavLinks as links } from '../data/navLinks'
 
@@ -16,6 +19,16 @@ export const Navigation = ({
   setCurrentColor,
 }) => {
   const [navOpen, setNavOpen] = useState(false)
+  const [copyStatus, setCopyStatus] = useState('')
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('cmkhoa2006@gmail.com')
+      setCopyStatus('Email copied')
+    } catch {
+      setCopyStatus('Copy unavailable: cmkhoa2006@gmail.com')
+    }
+  }
 
   const handleToggleMobileNav = () => {
     setNavOpen((prev) => !prev)
@@ -73,6 +86,18 @@ export const Navigation = ({
                 {link.label}
               </Link>
             ))}
+            <div className="mobile-contact-actions" role="group" aria-label="Contact and social links">
+              <button type="button" onClick={handleCopyEmail} aria-label="Copy email address">
+                <Mail size={20} />
+              </button>
+              <a href="https://github.com/cmkhoa" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <GitHub size={20} />
+              </a>
+              <a href="https://linkedin.com/in/cmkhoa" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <Linkedin2Solid size={20} width={20} height={20} />
+              </a>
+            </div>
+            {copyStatus && <p className="mobile-copy-status" role="status">{copyStatus}</p>}
           </nav>
           <nav className="navbar-menu social">
             <button
