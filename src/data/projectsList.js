@@ -22,9 +22,18 @@ export const projectsList = [
     date: '2026',
     slug: 'canvas-mcp',
     tagline:
-      'A Rust MCP server that brings Canvas LMS into AI clients through 46 read-only tools for assignments, grades, course content, and grade scenarios. Distributed as a single binary.',
+      'A Rust MCP server that brings Canvas LMS into AI clients through 47 read-only tools for assignments, grades, course content, and grade scenarios, including a structured planning snapshot for agent clients. Distributed as a single binary.',
     url: 'https://github.com/cmkhoa/canvas-mcp',
     highlight: true,
+  },
+  {
+    name: 'Canvas Academic Planner',
+    date: '2026',
+    slug: 'canvas-academic-planner',
+    tagline:
+      'A local-first, auditable Rust terminal agent built on Canvas MCP. It combines an allowlisted read-only data path with code-owned scheduling, citations, validation, and append-only audit logs; 71 tests and 13 offline evaluation scenarios pass.',
+    url: 'https://github.com/cmkhoa/canvas-agent',
+    highlight: false,
   },
   {
     name: 'MURL',
