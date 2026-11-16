@@ -768,7 +768,7 @@ button.navbar-button {
   }
 
   .navbar-menu.nav-items .mobile-sidebar-intro {
-    padding: 1.25rem 0;
+    padding: 1.25rem 0.5rem 1.25rem calc(1rem + 24px);
     border-bottom: 1px solid var(--color-border);
     margin-bottom: 1rem;
 
