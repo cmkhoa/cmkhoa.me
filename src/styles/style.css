@@ -759,7 +759,7 @@ button.navbar-button {
     }
   }
 
-  .mobile-sidebar-intro {
+  .navbar-menu.nav-items .mobile-sidebar-intro {
     padding-bottom: 1.1rem;
     border-bottom: 1px solid var(--color-border);
     margin-bottom: 0.2rem;
@@ -771,8 +771,8 @@ button.navbar-button {
       line-height: 1.55;
     }
 
-    a {
-      display: inline;
+    a.mobile-sidebar-inline-link {
+      display: inline !important;
       min-height: auto;
       padding: 0;
       border: 0;
@@ -794,45 +794,6 @@ button.navbar-button {
     }
   }
 
-  .mobile-contact-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    margin-top: 0.15rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--color-border);
-
-    a,
-    .mobile-contact-action {
-      min-height: 44px;
-      min-width: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0.5rem;
-      border: 0;
-      background: transparent;
-      color: var(--color-text-muted);
-      font-family: inherit;
-      text-decoration: none;
-      cursor: pointer;
-
-      &:hover,
-      &:focus-visible {
-        color: var(--color-text-emphasized);
-        background: var(--color-background-navbar-link-hover);
-        box-shadow: none;
-        transform: none;
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--color-primary);
-        outline-offset: 2px;
-      }
-    }
-  }
-
   .navbar-section {
     flex-direction: row-reverse;
   }
@@ -845,10 +806,6 @@ button.navbar-button {
 }
 
 @media screen and (min-width: 800px) {
-  .mobile-contact-actions {
-    display: none;
-  }
-
   button.nav-menu-button {
     display: none;
   }

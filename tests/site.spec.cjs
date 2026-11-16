@@ -46,24 +46,27 @@ test('navigation reaches Projects, Work, About, and Resume', async ({ page }, te
   await expect(page).toHaveURL(/\/resume\/$/)
 })
 
-test('mobile menu keeps contact actions visible and touch-sized', async ({ page }, testInfo) => {
+test('mobile menu mirrors the sidebar hierarchy and keeps its raised rows', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'Mobile-only navigation check.')
   await page.goto(sitePath('/'))
   await page.getByRole('button', { name: 'Open navigation' }).click()
   const menu = page.locator('.navbar .nav-items')
   await expect(menu.getByText('This is a home for engineering work, photography, and experiments.')).toBeVisible()
-  await expect(menu.getByRole('button', { name: 'Copy cmkhoa2006@gmail.com to clipboard' })).toBeVisible()
-  await expect(menu.getByRole('link', { name: 'GitHub' })).toBeVisible()
-  await expect(menu.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+  await expect(menu.getByRole('link', { name: 'cmkhoa', exact: true })).toHaveCSS('display', 'inline')
   const firstMenuRow = menu.locator(':scope > a').first()
   expect((await firstMenuRow.boundingBox()).height).toBeGreaterThanOrEqual(64)
   expect(await firstMenuRow.evaluate(el => getComputedStyle(el).boxShadow)).not.toBe('none')
-  for (const action of await menu.locator('.mobile-contact-actions > *').all()) {
-    expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44)
-  }
-  expect(await menu.locator('.mobile-contact-actions svg').evaluateAll(icons =>
-    icons.map(icon => [Math.round(icon.getBoundingClientRect().width), Math.round(icon.getBoundingClientRect().height)]),
-  )).toEqual([[20, 20], [20, 20], [20, 20]])
+  await expect(menu.locator('.mobile-contact-actions')).toHaveCount(0)
+})
+
+test('desktop sidebar retains its contact controls and inline introduction link', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'Desktop-only sidebar check.')
+  await page.goto(sitePath('/'))
+  const sidebar = page.locator('.sidebar')
+  await expect(sidebar.getByRole('link', { name: 'cmkhoa', exact: true })).toBeVisible()
+  await expect(sidebar.getByRole('button', { name: 'Copy cmkhoa2006@gmail.com to clipboard' })).toBeVisible()
+  await expect(sidebar.getByRole('link', { name: 'GitHub' })).toBeVisible()
+  await expect(sidebar.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
 })
 
 test('theme and accent persist, and the portrait follows the accent', async ({ page }) => {

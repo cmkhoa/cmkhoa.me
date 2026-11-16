@@ -6,11 +6,8 @@ import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
-import { Mail } from '../assets/Mail'
-import { GitHub } from '../assets/GitHub'
 import { ColorDropdown } from './ColorDropdown'
 import { mainNavLinks as links } from '../data/navLinks'
-import { Linkedin2Solid } from 'pixelarticons/react'
 
 export const Navigation = ({
   handleUpdateTheme,
@@ -19,8 +16,6 @@ export const Navigation = ({
   setCurrentColor,
 }) => {
   const [navOpen, setNavOpen] = useState(false)
-  const [emailStatus, setEmailStatus] = useState('')
-  const email = 'cmkhoa2006@gmail.com'
 
   const handleToggleMobileNav = () => {
     setNavOpen((prev) => !prev)
@@ -28,33 +23,6 @@ export const Navigation = ({
 
   const handleCloseMobileNav = () => {
     setNavOpen(false)
-  }
-
-  const handleCopyEmail = async () => {
-    try {
-      if (navigator.clipboard?.writeText && window.isSecureContext) {
-        await navigator.clipboard.writeText(email)
-      } else {
-        const copyTarget = document.createElement('textarea')
-        copyTarget.value = email
-        copyTarget.setAttribute('readonly', '')
-        copyTarget.style.position = 'fixed'
-        copyTarget.style.opacity = '0'
-        document.body.appendChild(copyTarget)
-        copyTarget.select()
-
-        const copied = document.execCommand('copy')
-        document.body.removeChild(copyTarget)
-
-        if (!copied) throw new Error('Clipboard copy was unavailable')
-      }
-
-      setEmailStatus('Copied!')
-    } catch {
-      setEmailStatus('Copy failed')
-    }
-
-    window.setTimeout(() => setEmailStatus(''), 2000)
   }
 
   return (
@@ -89,7 +57,7 @@ export const Navigation = ({
           <nav id="mobile-navigation" className={`navbar-menu nav-items ${navOpen ? 'active' : ''}`}>
             <section className="mobile-sidebar-intro">
               <p>
-                I'm <Link to="/me" onClick={handleCloseMobileNav}>cmkhoa</Link>. This is a home for engineering
+                I'm <Link className="mobile-sidebar-inline-link" to="/me" onClick={handleCloseMobileNav}>cmkhoa</Link>. This is a home for engineering
                 work, photography, and experiments.
               </p>
             </section>
@@ -105,35 +73,6 @@ export const Navigation = ({
                 {link.label}
               </Link>
             ))}
-            <div className="mobile-contact-actions" role="group" aria-label="Contact and social links">
-              <button
-                type="button"
-                className="mobile-contact-action"
-                onClick={handleCopyEmail}
-                aria-label={emailStatus ? `${emailStatus} ${email}` : `Copy ${email} to clipboard`}
-              >
-                <Mail size={20} />
-                <span className="screen-reader-status" role="status" aria-live="polite">
-                  {emailStatus}
-                </span>
-              </button>
-              <a
-                href="https://github.com/cmkhoa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <GitHub size={20} />
-              </a>
-              <a
-                href="https://linkedin.com/in/cmkhoa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <Linkedin2Solid size={20} width={20} height={20} />
-              </a>
-            </div>
           </nav>
           <nav className="navbar-menu social">
             <button
