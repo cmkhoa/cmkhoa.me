@@ -31,7 +31,23 @@ export const Sidebar = ({
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(email)
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(email)
+      } else {
+        const copyTarget = document.createElement('textarea')
+        copyTarget.value = email
+        copyTarget.setAttribute('readonly', '')
+        copyTarget.style.position = 'fixed'
+        copyTarget.style.opacity = '0'
+        document.body.appendChild(copyTarget)
+        copyTarget.select()
+
+        const copied = document.execCommand('copy')
+        document.body.removeChild(copyTarget)
+
+        if (!copied) throw new Error('Clipboard copy was unavailable')
+      }
+
       setEmailStatus('Copied!')
     } catch {
       setEmailStatus('Copy failed')
@@ -115,6 +131,9 @@ export const Sidebar = ({
                 <Mail size={20} />
               </button>
               <div className="tooltip">{emailStatus || 'Copy email'}</div>
+              <span className="screen-reader-status" role="status" aria-live="polite">
+                {emailStatus}
+              </span>
             </div>
             {socialLinks.map(({ url, label, Icon, image }) => (
               <div className="tooltip-container tooltip-above" key={url}>
